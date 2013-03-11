@@ -1,4 +1,11 @@
 Todozer::Application.routes.draw do
+  devise_for :users
+
+  resources :tasks do
+    put :finish
+    put :unfinish
+  end
+
   root :to => "page#index"    #root is method on explicit "self" object
   get "/about" => "page#about"
 
